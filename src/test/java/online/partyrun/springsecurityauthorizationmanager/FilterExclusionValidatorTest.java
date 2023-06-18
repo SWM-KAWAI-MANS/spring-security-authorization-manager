@@ -1,8 +1,8 @@
 package online.partyrun.springsecurityauthorizationmanager;
 
-import org.junit.jupiter.api.*;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.*;
 
 @DisplayName("FilterExclusionValidator 에서")
 class FilterExclusionValidatorTest {
@@ -51,8 +51,7 @@ class FilterExclusionValidatorTest {
             @DisplayName("하나의 값만 들어가도 true를 반환한다.")
             void doTrue() {
                 final FilterExclusionValidator exclusionValidator =
-                        new FilterExclusionValidator(
-                                new String[] {"/asdf", "/qwerweq", "/hello"});
+                        new FilterExclusionValidator(new String[] {"/asdf", "/qwerweq", "/hello"});
 
                 assertThat(exclusionValidator.validate(requestPath)).isTrue();
             }
@@ -61,8 +60,7 @@ class FilterExclusionValidatorTest {
             @DisplayName("하나의 값도 없으면 false를 반환한다.")
             void doFalse() {
                 final FilterExclusionValidator exclusionValidator =
-                        new FilterExclusionValidator(
-                                new String[] {"/asdf", "/qwerweq", "/ttttt"});
+                        new FilterExclusionValidator(new String[] {"/asdf", "/qwerweq", "/ttttt"});
                 assertThat(exclusionValidator.validate(requestPath)).isFalse();
             }
         }

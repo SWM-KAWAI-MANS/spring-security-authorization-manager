@@ -5,6 +5,7 @@ import org.springframework.security.config.annotation.web.configurers.AuthorizeH
 
 public interface AuthorizationRegistry {
 
-    AuthorizeHttpRequestsConfigurer<HttpSecurity>
-            .AuthorizationManagerRequestMatcherRegistry match(AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry r);
+    AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry match(
+            AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry
+                    r);
 }

@@ -5,8 +5,11 @@ import org.springframework.security.config.annotation.web.configurers.AuthorizeH
 
 public class DefaultAuthorizationRegistry implements AuthorizationRegistry {
     @Override
-    public AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry match(AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry r) {
-        return r.anyRequest()
-                .authenticated();
+    public AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry
+            match(
+                    AuthorizeHttpRequestsConfigurer<HttpSecurity>
+                                    .AuthorizationManagerRequestMatcherRegistry
+                            r) {
+        return r.anyRequest().authenticated();
     }
 }

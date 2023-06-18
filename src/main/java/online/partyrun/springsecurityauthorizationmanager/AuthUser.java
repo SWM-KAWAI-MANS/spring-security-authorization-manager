@@ -1,6 +1,7 @@
 package online.partyrun.springsecurityauthorizationmanager;
 
 import online.partyrun.jwtmanager.dto.JwtPayload;
+
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -16,9 +17,6 @@ public class AuthUser extends UsernamePasswordAuthenticationToken {
     }
 
     private static List<SimpleGrantedAuthority> toAuthority(List<String> roles) {
-        return roles.stream()
-                .map(SimpleGrantedAuthority::new)
-                .toList();
+        return roles.stream().map(SimpleGrantedAuthority::new).toList();
     }
-
 }

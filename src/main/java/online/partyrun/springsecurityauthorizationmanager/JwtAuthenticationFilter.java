@@ -4,10 +4,13 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+
 import online.partyrun.jwtmanager.JwtExtractor;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -21,8 +24,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     JwtExtractor extractor;
     FilterExclusionValidator exclusionValidator;
+
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(
+            HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
         final String token = request.getHeader("Authorization");
         final AuthUser auth = new AuthUser(extractor.extract(token));
         SecurityContextHolder.getContext().setAuthentication(auth);

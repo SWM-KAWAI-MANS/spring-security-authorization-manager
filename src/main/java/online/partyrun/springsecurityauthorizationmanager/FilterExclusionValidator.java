@@ -3,17 +3,13 @@ package online.partyrun.springsecurityauthorizationmanager;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
 import java.util.Arrays;
 
-@Component
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class FilterExclusionValidator {
     String[] exclusions;
 
-    public FilterExclusionValidator(@Value("${auth.filter.exclusions}") String[] exclusions) {
+    public FilterExclusionValidator(String[] exclusions) {
         this.exclusions = correctPath(exclusions);
     }
 

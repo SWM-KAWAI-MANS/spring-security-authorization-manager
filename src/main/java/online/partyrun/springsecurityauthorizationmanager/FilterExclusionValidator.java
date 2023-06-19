@@ -3,18 +3,18 @@ package online.partyrun.springsecurityauthorizationmanager;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
-import java.util.Arrays;
+import java.util.List;
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class FilterExclusionValidator {
-    String[] exclusions;
+    List<String> exclusions;
 
-    public FilterExclusionValidator(String[] exclusions) {
+    public FilterExclusionValidator(List<String> exclusions) {
         this.exclusions = correctPath(exclusions);
     }
 
-    private String[] correctPath(String[] exclusions) {
-        return Arrays.stream(exclusions)
+    private List<String> correctPath(List<String> exclusions) {
+        return exclusions.stream()
                 .map(
                         s -> {
                             if (s.startsWith("/")) {
@@ -22,10 +22,10 @@ public class FilterExclusionValidator {
                             }
                             return "/" + s;
                         })
-                .toArray(String[]::new);
+                .toList();
     }
 
     public boolean validate(String path) {
-        return Arrays.asList(exclusions).contains(path);
+        return exclusions.contains(path);
     }
 }

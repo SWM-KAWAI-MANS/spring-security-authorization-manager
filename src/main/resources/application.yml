@@ -1,8 +1,0 @@
-auth:
-  filter:
-    exclusions: "/asdf, /asdf, asdf"
-jwt:
-  access-secret-key: "aassdasasasasasasasasasasaassdasasasasasasasasasasaassdasasasasasasasasasasaassdasasasasasasasasasas"
-  access-expire-second: 90000
-  refresh-secret-key: "aassdasasasasasasasasasasaassdasasasasasasasasasasaassdasasasasasasasasasasaassdasasasasasasasasasas"
-  refresh-expire-second: 900000000

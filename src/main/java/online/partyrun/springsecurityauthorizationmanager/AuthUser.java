@@ -8,10 +8,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import java.util.List;
 
 public class AuthUser extends UsernamePasswordAuthenticationToken {
-    public AuthUser(String id) {
-        super(id, null);
-    }
-
     public AuthUser(JwtPayload payload) {
         super(payload.id(), null, toAuthority(payload.roles()));
     }

@@ -2,9 +2,7 @@ package online.partyrun.springsecurityauthorizationmanager;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
-
 import online.partyrun.jwtmanager.JwtExtractor;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -21,7 +19,7 @@ public class SecurityBeanConfig {
     JwtExtractor extractor;
 
     public SecurityBeanConfig(
-            @Value("${auth.filter.exclusions}") List<String> exclusions, JwtExtractor extractor) {
+            @Value("${auth.filter.exclusions#{{}}") List<String> exclusions, JwtExtractor extractor) {
         this.exclusions = exclusions;
         this.extractor = extractor;
     }

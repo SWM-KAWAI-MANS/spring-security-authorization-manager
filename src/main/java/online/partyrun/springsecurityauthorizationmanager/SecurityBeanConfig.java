@@ -21,7 +21,7 @@ public class SecurityBeanConfig {
     JwtExtractor extractor;
 
     public SecurityBeanConfig(
-            @Value("${auth.filter.exclusions:#{{}}") List<String> exclusions,
+            @Value("${auth.filter.exclusions:#{{}}}") List<String> exclusions,
             JwtExtractor extractor) {
         this.exclusions = exclusions;
         this.extractor = extractor;

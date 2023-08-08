@@ -24,7 +24,7 @@ repositories {
 2. Add the spring-security-authorization-manager dependency to your app-level build.gradle file:
 ```
 dependencies {
-	      implementation 'com.github.SWM-KAWAI-MANS:spring-security-authorization-manager:1.0.0'
+	      implementation 'com.github.SWM-KAWAI-MANS:spring-security-authorization-manager:1.0.1'
 }
 ```
 
@@ -33,9 +33,7 @@ dependencies {
 ```
 auth:
   filter:
-    exclusions:
-      - hello
-      - world
+    exclusions: hello, world
 ```
 
 2. AuthorizationRegistry를 설정합니다. 기본값은 anyRequest().authenticated() 로 설정되어있습니다.
@@ -43,10 +41,8 @@ auth:
 public class CustomAuthorizationRegistry implements AuthorizationRegistry {
     @Override
     public AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry
-            match(
-                    AuthorizeHttpRequestsConfigurer<HttpSecurity>
-                                    .AuthorizationManagerRequestMatcherRegistry
-                            r) {
+            match(AuthorizeHttpRequestsConfigurer<HttpSecurity>
+                                    .AuthorizationManagerRequestMatcherRegistry r) {
         return r.anyRequest().authenticated();
     }
 }

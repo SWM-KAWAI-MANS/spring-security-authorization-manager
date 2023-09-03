@@ -3,6 +3,7 @@ package online.partyrun.springsecurityauthorizationmanager;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,7 +27,10 @@ public class SecurityConfig {
         return http.authorizeHttpRequests(authorizationRegistry::match)
                 .addFilterAfter(jwtAuthenticationFilter, BasicAuthenticationFilter.class)
                 .csrf(AbstractHttpConfigurer::disable)
-                .exceptionHandling(exceptionHandling -> exceptionHandling.authenticationEntryPoint(authenticationEntryPoint))
+                .exceptionHandling(
+                        exceptionHandling ->
+                                exceptionHandling.authenticationEntryPoint(
+                                        authenticationEntryPoint))
                 .build();
     }
 }

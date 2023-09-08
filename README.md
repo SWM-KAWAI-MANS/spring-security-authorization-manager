@@ -24,7 +24,7 @@ repositories {
 2. Add the spring-security-authorization-manager dependency to your app-level build.gradle file:
 ```
 dependencies {
-	      implementation 'com.github.SWM-KAWAI-MANS:spring-security-authorization-manager:1.0.1'
+	      implementation 'com.github.SWM-KAWAI-MANS:spring-security-authorization-manager:1.1.0'
 }
 ```
 
